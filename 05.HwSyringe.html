@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS畫針筒</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+            list-style: none;
+        }
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        #syringe {
+            /* 待改善刻度會被黃色遮到問題 */
+            width: 500px;
+            height: 100px;
+            /* 1.透明/黃 2.白灰白漸層 3.重複刻度 */
+            background: linear-gradient(to left, rgba(255, 255, 0, 0.288), rgba(229, 255, 0, 0.288) 45%, #000 45%, #000 55%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0)), linear-gradient(to top, white, #bbb, white 90%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0) 100%), repeating-linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 2%, #aaa, #aaa 2.39%);
+
+            border: 1px solid #aaa;
+            color: #aaa;
+            font-weight: 500;
+            line-height: 180px;
+            position: relative;
+        }
+
+        #syringe span {
+            position: absolute;
+            left: 552px;
+            top: 50%;
+            transform: translate(0%, -50%);
+            width: 90px;
+
+            letter-spacing: -2px;
+            color: #666;
+            text-shadow: 0px 0.2px #999;
+            line-height: 70px;
+        }
+
+        #syringe::before {
+            /* --------------------------- */
+            content: '';
+            width: 600px;
+            height: 70px;
+            position: absolute;
+            left: -10%;
+            top: 50%;
+            transform: translate(0%, -50%);
+            border: 1px solid #aaa;
+            border-radius: 0px 6px 6px 0px;
+            background: linear-gradient(to top, white, #bbb 41.7%, white);
+            z-index: -1;
+
+            /* letter-spacing: -2px;
+            color: #666;
+            text-shadow: 0px 0.2px #999;
+            line-height: 70px; */
+            /* padding-left: 550px; */
+        }
+
+        #syringe::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 100px;
+            border: 1px solid #aaa;
+            border-radius: 10%;
+            left: -20%;
+            top: 0%;
+            transform: translateX(20%);
+            background: linear-gradient(to top, white, #bbb 45%, white 90%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0) 100%);
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TODO剩下針筒的線 -->
+    <div id="syringe"><span>---------------------------</span>Made in Taiwan</div>
+</body>
+
+</html>
